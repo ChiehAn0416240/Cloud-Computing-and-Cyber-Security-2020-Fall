@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<!--<html lang="zh-Hant-TW"> -->	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">   <!-- added -->
+		<link rel="stylesheet" href="../static/style.css">
+		<title>MRT Passengers Numbers</title>
+	</head>
+
+	<body>
+		<div class="container"></div>
+			<img src="../static/Taipei MRT.png" alt="Taipei MRT" class="logo" width="30%">
+			<form action="/submit" method="POST">
+				<div class="form-group">
+					<h3>請選擇站名</h3>
+					<select name="StationName">
+						<option value="BL板橋">BL板橋</option>
+						<option value="Y板橋">Y板橋</option>
+					　	<option value="西門">西門</option>
+					　	<option value="中山">中山</option>
+					　	<option value="台北車站">台北車站</option>
+					　	<option value="中正紀念堂">中正紀念堂</option>
+						<option value="松江南京">松江南京</option>
+					　	<option value="忠孝新生">忠孝新生</option>
+					　	<option value="東門">東門</option>
+					　	<option value="古亭">古亭</option>
+						<option value="南京復興">南京復興</option>
+					　	<option value="忠孝復興">忠孝復興</option>
+					　	<option value="大安">大安</option>
+						<option value="南港展覽館">南港展覽館</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<h3>請選擇時段</h3>
+					<select name="TimePeriod">
+					　	<option value="Morning">早上(7:00~9:00)</option>
+					　	<option value="Noon">中午(11:00~13:00)</option>
+					　	<option value="Evening">晚上(17:00~19:00)</option>
+					</select>
+				</div>
+				<div>
+					<input type="submit" value="查詢" class="btn" onclick="showTable()"/>
+				</div>								
+			</form>
+
+			<br>
+			<br>
+								
+			{% if show == 'Yes' %}
+			<h3>{{station}} 進站人數:</h3>
+			<table border="1" style="display:block">
+			{% elif show == 'No' %}
+			<table border="1" style="display:none">
+			{% endif %}
+					
+				<tr>
+					<th width="800"><font size="4">日期\時間</th>
+					<th width="400"><font size="4">{{time[0]}}</th>
+					<th width="400"><font size="4">{{time[1]}}</th>
+					<th width="400"><font size="4">{{time[2]}}</th>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/1(星期日)</td>
+					<td align="center"><font size="3"></font>{{results[0][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[0][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[0][2]}}</td>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/2(星期一)</td>
+					<td align="center"><font size="3"></font>{{results[1][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[1][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[1][2]}}</td>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/3(星期二)</td>
+					<td align="center"><font size="3"></font>{{results[2][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[2][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[2][2]}}</td>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/4(星期三)</td>
+					<td align="center"><font size="3"></font>{{results[3][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[3][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[3][2]}}</td>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/5(星期四)</td>
+					<td align="center"><font size="3"></font>{{results[4][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[4][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[4][2]}}</td>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/6(星期五)</td>
+					<td align="center"><font size="3"></font>{{results[5][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[5][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[5][2]}}</td>
+				</tr>
+				<tr>
+					<td align="center"><font size="3"></font>11/7(星期六)</td>
+					<td align="center"><font size="3"></font>{{results[6][0]}}</td>
+					<td align="center"><font size="3"></font>{{results[6][1]}}</td>
+					<td align="center"><font size="3"></font>{{results[6][2]}}</td>
+				</tr>
+			</table>
+		</div>		
+	</body>
+</html>
